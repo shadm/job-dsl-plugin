@@ -26,15 +26,25 @@ organize a SCM repository for Job DSL scripts, including [[tests for DSL scripts
 Browse the Jenkins issue tracker to see any [open issues](https://issues.jenkins-ci.org/issues/?filter=15140).
 
 ## Release Notes
-* 1.53 (unreleased)
+* 1.54 (unreleased)
+* 1.53 (November 08 2016)
  * Enhanced support the
    [Config File Provider Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Config+File+Provider+Plugin)
    ([JENKINS-38637](https://issues.jenkins-ci.org/browse/JENKINS-38637))
+ * Enhanced support for the [Git Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)
+   ([JENKINS-39558](https://issues.jenkins-ci.org/browse/JENKINS-39558))
+ * Allow `GString` as argument type for Automatically Generated DSL
+   ([JENKINS-39153](https://issues.jenkins-ci.org/browse/JENKINS-39153))
+ * The XML configuration for jobs and folders will only be generated once
+   ([JENKINS-39417](https://issues.jenkins-ci.org/browse/JENKINS-39417))
  * Fixed a problem with relative job names
    ([JENKINS-39137](https://issues.jenkins-ci.org/browse/JENKINS-39137))
  * Added "Next Launch" and "Next Possible Launch" columns for
    [Next Executions Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Next+Executions)
    ([#940](https://github.com/jenkinsci/job-dsl-plugin/pull/940))
+ * Overriding job, folder or view names is deprecated, see [Migration](Migration#migrating-to-153)
+ * Deprecated unnecessary option in GitHub branch source context
+   ([JENKINS-39146](https://issues.jenkins-ci.org/browse/JENKINS-39146))
 * 1.52 (October 17 2016)
  * Increased the minimum supported Jenkins version to 1.642
  * Enhanced support for the [Exclusion Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Exclusion-Plugin)
