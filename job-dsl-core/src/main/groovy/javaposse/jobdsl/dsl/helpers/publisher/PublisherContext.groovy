@@ -1512,6 +1512,31 @@ class PublisherContext extends AbstractExtensibleContext {
         }
     }
 
+    @RequiresPlugin(id = 'coverity', minimumVersion = '1.7.1.DELL.2')
+    void coverity(@DslContext(CoverityPublisherContext) Closure coverityClosure = null) {
+        CoverityPublisherContext coverityContext = new CoverityPublisherContext()
+        ContextHelper.executeInContext(coverityClosure, coverityContext)
+
+        publisherNodes << new NodeBuilder().'jenkins.plugins.coverity.CoverityPublisher' {
+            cimStreams {
+                'jenkins.plugins.coverity.CIMStream' {
+                    instance(coverityContext.instance)
+                    project(coverityContext.project)
+                    stream(coverityContext.stream)
+                    id(coverityContext.id ?: '')
+                    language(coverityContext.language ?: 'ALL')
+                }
+                failBuild(coverityContext.failBuild ?: false)
+                unstable(coverityContext.unstable ?: false)
+                keepIntDir(coverityContext.keepIntDir ?: false)
+                skipFetchingDefects(coverityContext.skipFetchingDefects ?: false)
+                hideChart(coverityContext.hideChart ?: false)
+                displayChart(coverityContext.displayChart ?: false)
+                unstableBuild(false)
+            }
+        }
+    }
+
     /**
      * Send artifacts to an SSH server (using SFTP) and/or execute commands over SSH.
      *
