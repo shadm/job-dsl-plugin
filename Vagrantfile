@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+
+# bogus and lame
+
 $base_script = <<SCRIPT
 sudo apt-get update
 sudo apt-get install -y openjdk-7-jdk git
